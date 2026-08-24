@@ -1,0 +1,1 @@
+playwright traning initial paracticals
