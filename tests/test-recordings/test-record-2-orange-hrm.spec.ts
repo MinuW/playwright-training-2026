@@ -1,9 +1,7 @@
 import { test, expect } from '@playwright/test';
 
 test('test', async ({ page }) => {
-  await page.locator('body').click();
   await page.goto('https://opensource-demo.orangehrmlive.com/web/index.php/auth/login');
-  await page.getByRole('textbox', { name: 'Username' }).click();
   await page.getByRole('textbox', { name: 'Username' }).fill('Admin');
   await page.getByRole('textbox', { name: 'Username' }).press('Tab');
   await page.getByRole('textbox', { name: 'Password' }).fill('admin123');
@@ -24,6 +22,11 @@ test('test', async ({ page }) => {
     - paragraph: /\\d+[hmsp]+ [\\d,.]+[bkmBKM]+/
     `);
   await expect(page.getByRole('banner')).toContainText('Dashboard');
-  await page.locator('span').filter({ hasText: 'Demo Source' }).click();
+  
+
+  await page.getByRole('button', { name: 'Login' }).click();
+  await page.getByRole('listitem').filter({ hasText: 'manda user' }).locator('i').click();
   await page.getByRole('menuitem', { name: 'Logout' }).click();
+  
+  
 });
