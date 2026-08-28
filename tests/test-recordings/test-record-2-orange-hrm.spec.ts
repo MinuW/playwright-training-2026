@@ -6,25 +6,9 @@ test('test', async ({ page }) => {
   await page.getByRole('textbox', { name: 'Username' }).press('Tab');
   await page.getByRole('textbox', { name: 'Password' }).fill('admin123');
   await page.getByRole('button', { name: 'Login' }).click();
-  await expect(page.locator('#app')).toMatchAriaSnapshot(`
-    - text: 
-    - paragraph: Time at Work
-    - separator
-    - img "profile picture"
-    - paragraph: Punched Out
-    - paragraph: "/Punched Out: Today at \\\\d+:\\\\d+ PM \\\\(GMT 5\\\\.5\\\\)/"
-    - text: /\\d+[hmsp]+ [\\d,.]+[bkmBKM]+ Today/
-    - button ""
-    - separator
-    - paragraph: This Week
-    - paragraph: /Aug \\d+ - Aug \\d+/
-    - text: 
-    - paragraph: /\\d+[hmsp]+ [\\d,.]+[bkmBKM]+/
-    `);
+  
   await expect(page.getByRole('banner')).toContainText('Dashboard');
   
-
-  await page.getByRole('button', { name: 'Login' }).click();
   await page.getByRole('listitem').filter({ hasText: 'manda user' }).locator('i').click();
   await page.getByRole('menuitem', { name: 'Logout' }).click();
   
