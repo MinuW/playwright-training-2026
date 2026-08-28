@@ -20,7 +20,7 @@ test('login-test for blank username', async({page})=>{
     await page.getByRole('button',{name:' Login'}).click();
 
     await expect(page.locator('.oxd-input-field-error-message')).toContainText('Required');
-    //await page.screenshot({path:'tests/screens-orangehrm-login/screenshot-blank-username.png'});
+    await page.screenshot({path:'tests/screens-orangehrm-login/screenshot-blank-username.png'});
 });
 
 test('login-test for blank password', async({page})=>{
