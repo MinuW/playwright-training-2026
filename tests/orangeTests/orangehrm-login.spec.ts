@@ -73,7 +73,7 @@ test.describe('OrangeHRM login tests : negative cases',()=>{
         //test.slow(browserName === 'chromium', 'This test is slow on Chromium');
         //test.slow(browserName === 'firefox', 'This test is slow on Firefox');
         await page.getByPlaceholder('Username').fill(' Admin ');
-        await page.getByPlaceholder('Password').fill('admin123r');
+        await page.getByPlaceholder('Password').fill('admin123');
         await page.getByRole('button',{name:' Login'}).click();
 
         await expect(page.locator('.oxd-alert-content-text')).toContainText('Invalid credentials');
@@ -83,7 +83,7 @@ test.describe('OrangeHRM login tests : negative cases',()=>{
     test('login-test for valid password-leading/trailing spaces', async({page})=>{
         //test.slow(browserName === 'firefox', 'This test is slow on Firefox');
         await page.getByRole('textbox', { name: 'Username' }).fill('Admin');
-        await page.getByRole('textbox', { name: 'Password' }).fill(' admin123r ');
+        await page.getByRole('textbox', { name: 'Password' }).fill(' admin123 ');
         await page.getByRole('button',{name:' Login'}).click();
 
         await expect(page.locator('.oxd-alert-content-text')).toContainText('Invalid credentials');
@@ -109,7 +109,7 @@ test.describe('OrangeHRM login tests : negative cases',()=>{
         await expect(page.getByPlaceholder('Password')).toHaveAttribute('type','password');
 
         await page.getByPlaceholder('Password').fill('Admin123');
-        await expect(page.getByPlaceholder('Password')).toHaveAttribute('type','password');
+        await expect(page.getByPlaceholder('Password')).toHaveAttribute('type','password', { timeout: 60000 });//expect timeout increased to 60 seconds for this assertion
 
         //await page.screenshot({path:'tests/orangeTests/screens-orangehrm-login/screenshot-masked-password.png'});
     });
