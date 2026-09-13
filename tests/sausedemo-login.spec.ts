@@ -30,7 +30,7 @@ test('login test-blank username with valid password', async({page})=>{
     await page.getByPlaceholder('Password').fill('secret_sauce');
     await page.getByRole('button',{name:'Login'}).click();
 
-    await expect(page.getByText('')).toBeVisible();
+    await expect(page.getByText('Epic sadface: Username is required')).toBeVisible();
 });
 
 test('login test-blank password with valid username', async({page})=>{
