@@ -1,4 +1,6 @@
 import { defineConfig, devices } from '@playwright/test';
+import dotenv from 'dotenv';
+dotenv.config();
 
 /**
  * Read environment variables from file.
@@ -33,7 +35,8 @@ export default defineConfig({
   use: {
     /* Base URL to use in actions like `await page.goto('')`. */
     // baseURL: 'https://opensource-demo.orangehrmlive.com/',
-    baseURL: 'https://www.saucedemo.com/',
+    //baseURL: 'https://www.saucedemo.com/',
+    baseURL: 'https://example.mailosaur.com',
 
     /* Collect trace when retrying the failed test. See https://playwright.dev/docs/trace-viewer */
     trace: 'on-first-retry',
@@ -74,6 +77,25 @@ export default defineConfig({
     // {
     //   name: 'Google Chrome',
     //   use: { ...devices['Desktop Chrome'], channel: 'chrome' },
+    // },
+
+    // {
+    //   name: 'saucedemo',
+    //   use: {
+    //     baseURL: 'https://www.saucedemo.com',
+    //   },
+    // },
+    // {
+    //   name: 'orangehrm',
+    //   use: {
+    //     baseURL: 'https://opensource-demo.orangehrmlive.com',
+    //   },
+    // },
+    // {
+    //   name: 'mailosaur',
+    //   use: {
+    //     baseURL: 'https://example.mailosaur.com/',
+    //   },
     // },
   ],
 
