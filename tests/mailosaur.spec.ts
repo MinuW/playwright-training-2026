@@ -29,15 +29,6 @@ test.describe("mailosaur tests", () => {
     console.log(emailAddress); 
   });
 
-  test("construct email address", async () => {
-    const firstName = faker.person.firstName();
-    const lastName = faker.person.lastName();
-    const emailName = `${firstName}.${lastName}`.toLowerCase();
-    const emailDomain = "b4ujcgqb.mailosaur.net";
-    const email = `${emailName}@${emailDomain}`;
-    console.log(`Generated Email: ${email}`);
-  });
-
   test("signup flow", async ({ page }) => {
     await page.goto("/signup");
 
